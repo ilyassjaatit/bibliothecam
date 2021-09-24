@@ -3,14 +3,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {CardBook} from './CardBook'
 
-const ListBook = () => {
+const ListBook = ({books, setBooks}) => {
+
     return (
         <Row xs={2} md={4} className="g-4">
-            {Array.from({length: 12}).map((_, idx) => (
-                <Col>
-                    <CardBook></CardBook>
+            {books.map(book =>
+                <Col key={book.id}>
+                    <CardBook  book={book} />
                 </Col>
-            ))}
+            )}
         </Row>
     );
 };

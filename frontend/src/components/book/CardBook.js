@@ -1,19 +1,19 @@
 import React from 'react';
-
+import {Link} from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-const CardBook = () => {
+const CardBook = ({book}) => {
     return (
         <React.Fragment>
             <Card style={{width: '18rem'}}>
-                <Card.Img variant="top" src="https://via.placeholder.com/286x180"/>
+                <Card.Img variant="top" src={book.img}/>
                 <Card.Body>
-                    <Card.Title>Book title</Card.Title>
+                    <Card.Title>{book.name}</Card.Title>
                     <Card.Text>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt up.
+                      {book.shortDescription}
                     </Card.Text>
-                    <Button variant="primary">Edit</Button>
+                    <Link to={`books/${book.id}`}>Show details</Link>
                 </Card.Body>
             </Card>
         </React.Fragment>
