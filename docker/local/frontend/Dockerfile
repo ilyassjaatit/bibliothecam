@@ -1,9 +1,6 @@
-FROM node:16-alpine3.11
+FROM node:14.17.6-alpine
 RUN apk add yarn
 
-WORKDIR /frontend
-
-COPY frontend/package.json ./
-COPY frontend/package-lock.json ./
-
+WORKDIR ./frontend
+RUN yarn install
 CMD ["npm", "start"]
