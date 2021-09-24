@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import { Home } from './pages/Home.js';
+import { Book } from './pages/Book.js';
 import {NotFoundPage} from './pages/NotFoundPage.js';
 import './App.scss';
 
@@ -15,6 +16,7 @@ function App() {
         <Router>
             <Switch>
                 <Route exact path="/" component= {Home} />
+                <Route path="/books" component= {Book} />
                 <Route path="*" component={NotFoundPage} />
             </Switch>
         </Router>

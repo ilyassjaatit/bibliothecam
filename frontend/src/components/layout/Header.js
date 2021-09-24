@@ -23,6 +23,7 @@ const Header = () => {
                                 navbarScroll
                             >
                                 <Nav.Link as={Link} to="/" >Home</Nav.Link>
+                                <Nav.Link as={Link} to="/books" >book</Nav.Link>
 
                             </Nav>
                             <Form className="d-flex float-end">
