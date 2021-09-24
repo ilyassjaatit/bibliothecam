@@ -1,0 +1,6 @@
+POSTGRES_HOST=postgresql
+POSTGRES_PORT=5432
+POSTGRES_USER=bibliothecam_kafka_user
+POSTGRES_PASSWORD=super_secret_password_bibliothecam
+POSTGRES_DB=bibliothecam_kafka_db
+DJANGO_DEBUG=True
