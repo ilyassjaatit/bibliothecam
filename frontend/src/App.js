@@ -5,14 +5,18 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Home from './pages/Home.js';
+import { Home } from './pages/Home.js';
+import {NotFoundPage} from './pages/NotFoundPage.js';
 import './App.scss';
 
 function App() {
   return (
       <React.Fragment>
         <Router>
-            <Route exact path="/" component= {Home} />
+            <Switch>
+                <Route exact path="/" component= {Home} />
+                <Route path="*" component={NotFoundPage} />
+            </Switch>
         </Router>
       </React.Fragment>
   );
