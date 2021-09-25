@@ -11,3 +11,10 @@ djangorestframework==3.12.4
 
 ## pytest
 pytest-django==4.4.0
+
+# Code quality
+# ------------------------------------------------------------------------------
+flake8==3.9.2
+mypy==0.910
+black==21.9b0
+isort==5.9.3
