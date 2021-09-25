@@ -7,13 +7,15 @@ from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
 
 from apps.users.views import UserViewSet
+from apps.libraries.views import BookViewSet
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
 ]
 
 # api Urls
 router = routers.DefaultRouter()
 router.register(r"users", UserViewSet)
+router.register(r"libraries/books", BookViewSet)
 
 urlpatterns += [
     # DRF auth token
