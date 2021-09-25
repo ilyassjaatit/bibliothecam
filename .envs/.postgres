@@ -1,0 +1,4 @@
+POSTGRES_USER=bibliothecam_db
+POSTGRES_PASSWORD=super_secret_password_bibliothecam
+POSTGRES_DB=bibliothecam_db
+POSTGRES_PORT=5432

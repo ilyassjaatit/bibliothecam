@@ -1,5 +1,29 @@
 version: '3'
 services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./docker/local/backend/Dockerfile
+    container_name: backend
+    depends_on:
+      - postgresql
+    volumes:
+      - ./backend:/backend
+    env_file:
+      - ./.envs/.django
+      - ./.envs/.postgres
+    ports:
+      - "8000:8000"
+    command: /start
+
+  postgresql:
+    image: postgres:13-alpine3.14
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.envs/.postgres
   frontend:
     build:
       context: .
@@ -8,3 +32,5 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend:/frontend
+volumes:
+  postgres_data:
