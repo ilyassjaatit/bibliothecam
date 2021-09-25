@@ -33,10 +33,15 @@ DJANGO_APPS = [
 ]
 
 # Third party apps
-THIRD_PARTY_APPS = []
-INSTALLED_APPS = []
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "rest_framework.authtoken",
+]
+
 # Local apps
-LOCAL_APPS = []
+LOCAL_APPS = [
+    "apps.users.apps.UsersConfig",
+]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -52,6 +57,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
+AUTH_USER_MODEL = "users.User"
 
 TEMPLATES = [
     {
