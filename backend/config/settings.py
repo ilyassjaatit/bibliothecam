@@ -36,11 +36,13 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
+    'treebeard',
 ]
 
 # Local apps
 LOCAL_APPS = [
     "apps.users.apps.UsersConfig",
+    "apps.libraries.apps.LibrariesConfig",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
