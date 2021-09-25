@@ -6,10 +6,10 @@ from treebeard.mp_tree import MP_Node
 class Category(MP_Node):
     name = models.CharField(max_length=255)
 
-    node_order_by = ['name']
+    node_order_by = ["name"]
 
     def __str__(self):
-        return 'Category: {}'.format(self.name)
+        return "Category: {}".format(self.name)
 
 
 class Book(models.Model):
@@ -25,4 +25,4 @@ class Book(models.Model):
 class Author(models.Model):
     name = models.CharField(max_length=255)
     biography = models.TextField(max_length=500, null=True, blank=True)
-    books = models.ManyToManyField(Book, related_name='authors')
+    books = models.ManyToManyField(Book, related_name="authors")

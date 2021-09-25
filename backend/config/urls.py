@@ -7,8 +7,9 @@ from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
 
 from apps.users.views import UserViewSet
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
 ]
 
 # api Urls
