@@ -9,13 +9,23 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ["id", "name"]
 
 
-class BookSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Book
-        fields = ["id", "title", 'front_cover', "category"]
-
-
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
         fields = ["id", "name"]
+        extra_kwargs = {'books': {'required': False}}
+
+
+class BookSerializer(serializers.ModelSerializer):
+    category = CategorySerializer(read_only=True)
+    authors = AuthorSerializer(many=True, read_only=True)
+    short_description = serializers.SerializerMethodField('get_short_description')
+
+
+    def get_short_description(self, obj):
+        return obj.description[0:100]
+
+    class Meta:
+        model = Book
+        fields = "__all__"
+        extra_kwargs = {'authors': {'required': False}}

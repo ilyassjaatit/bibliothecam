@@ -3,7 +3,7 @@ import {Route, useRouteMatch} from "react-router-dom";
 
 import {Layout} from '../components/layout/Layout'
 import {ListBook, DetailBook} from '../components/book'
-
+import "../components/book/book.scss"
 const Book = () => {
     const {path} = useRouteMatch();
     return (

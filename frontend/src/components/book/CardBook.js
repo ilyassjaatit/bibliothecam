@@ -1,17 +1,19 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+
 
 const CardBook = ({book}) => {
     return (
         <React.Fragment>
-            <Card style={{width: '18rem'}}>
-                <Card.Img variant="top" src={book.img}/>
+            <Card ClassName="book-card" style={{width: '18rem'}}>
+                <Card.Header>
+                    <Card.Img ClassName="book-card-front-cover" src={book.front_cover}/>
+                </Card.Header>
                 <Card.Body>
-                    <Card.Title>{book.name}</Card.Title>
+                    <Card.Title>{book.title}</Card.Title>
                     <Card.Text>
-                      {book.shortDescription}
+                      {book.short_description}
                     </Card.Text>
                     <Link to={`books/${book.id}`}>Show details</Link>
                 </Card.Body>
