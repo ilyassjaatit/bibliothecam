@@ -41,7 +41,6 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "corsheaders",
     "rest_framework.authtoken",
-    "treebeard",
     'django_extensions',
 ]
 
