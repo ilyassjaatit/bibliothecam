@@ -6,9 +6,9 @@ import Card from 'react-bootstrap/Card';
 const CardBook = ({book}) => {
     return (
         <React.Fragment>
-            <Card ClassName="book-card" style={{width: '18rem'}}>
+            <Card className="book-card" style={{width: '18rem'}}>
                 <Card.Header>
-                    <Card.Img ClassName="book-card-front-cover" src={book.front_cover}/>
+                    <Card.Img className="book-card-front-cover" src={book.front_cover}/>
                 </Card.Header>
                 <Card.Body>
                     <Card.Title>{book.title}</Card.Title>
