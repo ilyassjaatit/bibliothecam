@@ -15,6 +15,7 @@ const BookForm = ({bookData}) => {
             "language": "Arabic"
         }
     }
+    const base_url_books = process.env.REACT_APP_API_ENDPOIN + "libraries/books/"
     const [book, setNewBook] = React.useState(bookData)
     const category_options = [{value: '1', label: 'Action and Adventure'}]
     const onSubmit = (event) => {
@@ -27,8 +28,7 @@ const BookForm = ({bookData}) => {
         formData.append("front_cover", book.front_cover,book.front_cover.name )
         formData.append("back_cover", book.back_cover,book.back_cover.name )
         formData.append("language", "en")
-        console.log(book.language)
-        fetch('http://localhost:8000/api/libraries/books/', {
+        fetch(base_url_books, {
             method: 'POST',
             body: formData
         })

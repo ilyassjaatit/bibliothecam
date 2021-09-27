@@ -16,12 +16,12 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # api Urls
-router = routers.DefaultRouter()
-router.register(r"users", UserViewSet)
-router.register(r"libraries/books", BookViewSet)
+router_v1 = routers.DefaultRouter()
+router_v1.register(r"users", UserViewSet)
+router_v1.register(r"libraries/books", BookViewSet)
 
 urlpatterns += [
     # DRF auth token
     path("auth-token/", obtain_auth_token),
-    path("api/", include((router.urls, "api"))),
+    path("api/v1/", include((router_v1.urls, "api"))),
 ]
