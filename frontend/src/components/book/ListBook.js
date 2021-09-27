@@ -1,13 +1,19 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, Fragment} from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
+import Button from 'react-bootstrap/Button'
 import {CardBook} from './CardBook'
+import {BookForm} from "./BookForm";
 
 const ListBook = () => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [books, setBooks] = useState([]);
+    const [showForm, setShowForm] = useState(true);
+    const toggleShowForm = () => {
+        setShowForm(!showForm);
+    };
     useEffect(() => {
         fetch("http://localhost:8000/api/libraries/books/")
             .then(res => res.json())
@@ -32,14 +38,25 @@ const ListBook = () => {
         return <Spinner animation="border"/>
     } else {
         return (
-            <Row xs={2} md={4} className="g-4">
-                {books.map(book =>
-                    <Col key={book.id}>
-                        <CardBook book={book}/>
-                    </Col>
-                )}
+            <Fragment>
+                <Col>
+                    <br/>
+                    <Button onClick={toggleShowForm}> Add book</Button>
+                    <div className={showForm ? 'd-none' : null}>
+                        <BookForm bookData={{}}></BookForm>
+                    </div>
+                </Col>
 
-            </Row>
+                <br/>
+                <Row xs={2} md={4} className="g-4">
+                    {books.map(book =>
+                        <Col key={book.id}>
+                            <CardBook book={book}/>
+                        </Col>
+                    )}
+                </Row>
+            </Fragment>
+
         );
     }
 };
