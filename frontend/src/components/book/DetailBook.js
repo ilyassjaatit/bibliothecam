@@ -38,6 +38,7 @@ const DetailBook = () => {
     } else {
         return (
             <React.Fragment>
+                <br/>
                 <Row>
                     <Col md={4}>
                         <Carousel interval={null}>
@@ -88,7 +89,6 @@ const DetailBook = () => {
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
-
                     </Col>
                 </Row>
             </React.Fragment>

@@ -23,6 +23,7 @@ class BookSerializer(serializers.ModelSerializer):
 
     def get_category_name(self, obj):
         return obj.category.name
+
     def get_short_description(self, obj):
         return obj.description[0:100]
 
