@@ -12,8 +12,8 @@ from apps.users.views import UserViewSet
 from apps.libraries.views import BookViewSet
 
 urlpatterns = [
-                  path("admin/", admin.site.urls),
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path("admin/", admin.site.urls),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # api Urls
 router = routers.DefaultRouter()

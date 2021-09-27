@@ -13,13 +13,13 @@ class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
         fields = ["id", "name"]
-        extra_kwargs = {'books': {'required': False}}
+        extra_kwargs = {"books": {"required": False}}
 
 
 class BookSerializer(serializers.ModelSerializer):
-    category_name = serializers.SerializerMethodField('get_category_name')
+    category_name = serializers.SerializerMethodField("get_category_name")
     authors = AuthorSerializer(many=True, read_only=True)
-    short_description = serializers.SerializerMethodField('get_short_description')
+    short_description = serializers.SerializerMethodField("get_short_description")
 
     def get_category_name(self, obj):
         return obj.category.name
@@ -30,4 +30,4 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         fields = "__all__"
-        extra_kwargs = {'authors': {'required': False}}
+        extra_kwargs = {"authors": {"required": False}}
