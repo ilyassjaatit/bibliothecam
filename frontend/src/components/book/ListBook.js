@@ -1,14 +1,15 @@
-import {useState, useEffect, Fragment} from 'react';
+import {useState, useEffect, Fragment, useContext} from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button'
 import {CardBook} from './CardBook'
 import {BookForm} from "./BookForm";
-
+import {BookContext} from "./BookContext";
 import "./book.scss"
 
 const ListBook = () => {
+    const value = useContext(BookContext)
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [books, setBooks] = useState([]);
@@ -48,7 +49,6 @@ const ListBook = () => {
                         <BookForm bookData={{}}></BookForm>
                     </div>
                 </Col>
-
                 <br/>
                 <Row xs={2} md={4} className="g-4">
                     {books.map(book =>

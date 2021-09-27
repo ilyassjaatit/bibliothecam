@@ -27,7 +27,6 @@ const BookForm = ({bookData}) => {
         formData.append("front_cover", book.front_cover,book.front_cover.name )
         formData.append("back_cover", book.back_cover,book.back_cover.name )
         formData.append("language", "en")
-        console.log(book.language)
         fetch('http://localhost:8000/api/libraries/books/', {
             method: 'POST',
             body: formData
