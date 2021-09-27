@@ -17,11 +17,12 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 
 class BookSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(read_only=True)
+    category_name = serializers.SerializerMethodField('get_category_name')
     authors = AuthorSerializer(many=True, read_only=True)
     short_description = serializers.SerializerMethodField('get_short_description')
 
-
+    def get_category_name(self, obj):
+        return obj.category.name
     def get_short_description(self, obj):
         return obj.description[0:100]
 

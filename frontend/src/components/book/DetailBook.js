@@ -66,7 +66,7 @@ const DetailBook = () => {
                                     Pages:{book.pages}
                                 </Badge>{' '}
                                 <Badge pill bg="secondary">
-                                    cat: {book.category && book.category.name}
+                                    cat: {book.category_name}
                                 </Badge>{' '}
                             </div>
                             <div>
