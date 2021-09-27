@@ -42,6 +42,7 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "rest_framework.authtoken",
     "treebeard",
+    'django_extensions',
 ]
 
 # Local apps

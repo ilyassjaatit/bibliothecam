@@ -1,20 +1,21 @@
 from django.contrib.auth import get_user_model
 
-from factory import Faker, post_generation
-from factory.django import DjangoModelFactory
+import factory
+
+from apps.libraries.models import Book, Author, Category
 
 
-class UserFactory(DjangoModelFactory):
-    username = Faker("user_name")
-    email = Faker("email")
-    first_name = Faker("name")
+class UserFactory(factory.django.DjangoModelFactory):
+    username = factory.Faker("user_name")
+    email = factory.Faker("email")
+    first_name = factory.Faker("name")
 
-    @post_generation
+    @factory.post_generation
     def password(self, create, extracted, **kwargs):
         password = (
             extracted
             if extracted
-            else Faker(
+            else factory.Faker(
                 "password",
                 length=42,
                 special_chars=True,
@@ -28,3 +29,29 @@ class UserFactory(DjangoModelFactory):
     class Meta:
         model = get_user_model()
         django_get_or_create = ["email"]
+
+
+class FactoryAuthor(factory.django.DjangoModelFactory):
+    class Meta:
+        model = Author
+
+
+class FactoryCategory(factory.django.DjangoModelFactory):
+    name = "The name category 1"
+    description = "description "
+    depth = 1
+
+    class Meta:
+        model = Category
+        django_get_or_create = ('name',)
+
+
+class BookFactory(factory.django.DjangoModelFactory):
+    title = "Title Book "
+    publication_year = 1269
+    description = factory.Faker('text')
+    pages = 365
+    category = factory.SubFactory(FactoryCategory)
+
+    class Meta:
+        model = Book
