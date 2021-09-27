@@ -38,6 +38,7 @@ const DetailBook = () => {
     } else {
         return (
             <React.Fragment>
+                <br/>
                 <Row>
                     <Col md={4}>
                         <Carousel interval={null}>
@@ -66,7 +67,7 @@ const DetailBook = () => {
                                     Pages:{book.pages}
                                 </Badge>{' '}
                                 <Badge pill bg="secondary">
-                                    cat: {book.category && book.category.name}
+                                    cat: {book.category_name}
                                 </Badge>{' '}
                             </div>
                             <div>
@@ -88,7 +89,6 @@ const DetailBook = () => {
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
-
                     </Col>
                 </Row>
             </React.Fragment>

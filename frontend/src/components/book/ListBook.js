@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button'
 import {CardBook} from './CardBook'
 import {BookForm} from "./BookForm";
 
+import "./book.scss"
+
 const ListBook = () => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
