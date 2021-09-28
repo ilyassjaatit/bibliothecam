@@ -260,3 +260,6 @@ dist
 
 backend/media
 !backend/media/.gitkeep
+
+.envs/prod
+!.envs/prod/.gitkeep
