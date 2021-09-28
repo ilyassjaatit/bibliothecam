@@ -23,7 +23,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
-      - ./.envs/.postgres
+      - ./.envs/prod/.postgres
   frontend:
     build:
       context: .
@@ -43,8 +43,7 @@ services:
     ports:
       - "80:80"
     environment:
-      - NGINX_HOST=bibliothecam.test
-      - NGINX_PORT=80
+      - NGINX_HOST=mercacat.com
 
 volumes:
   postgres_data:
