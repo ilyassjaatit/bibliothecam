@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import Select from 'react-select'
+import {SelectCategory} from "../Category/SelectCategory";
 
 const BookForm = ({bookData}) => {
     if (!bookData) {
@@ -17,7 +17,6 @@ const BookForm = ({bookData}) => {
     }
     const base_url_books = process.env.REACT_APP_API_ENDPOIN + "libraries/books/"
     const [book, setNewBook] = React.useState(bookData)
-    const category_options = [{value: '1', label: 'Action and Adventure'}]
     const onSubmit = (event) => {
         event.preventDefault()
         let formData = new FormData();
@@ -76,7 +75,7 @@ const BookForm = ({bookData}) => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Category</Form.Label>
-                    <Select onChange={onChangeSelect} options={category_options}/>
+                    <SelectCategory onChange={onChangeSelect}/>
                 </Form.Group>
                 <Form.Group onChange={onChange} controlId="bookFormFrontCover" className="mb-3">
                     <Form.Label>Frontend cover</Form.Label>

@@ -36,14 +36,12 @@ class FactoryAuthor(factory.django.DjangoModelFactory):
         model = Author
 
 
-class FactoryCategory(factory.django.DjangoModelFactory):
+class CategoryFactory(factory.django.DjangoModelFactory):
     name = "The name category 1"
     description = "description "
-    depth = 1
 
     class Meta:
         model = Category
-        django_get_or_create = ('name',)
 
 
 class BookFactory(factory.django.DjangoModelFactory):
@@ -51,7 +49,7 @@ class BookFactory(factory.django.DjangoModelFactory):
     publication_year = 1269
     description = factory.Faker('text')
     pages = 365
-    category = factory.SubFactory(FactoryCategory)
+    category = factory.SubFactory(CategoryFactory)
 
     class Meta:
         model = Book
