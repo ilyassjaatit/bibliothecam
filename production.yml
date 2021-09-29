@@ -44,6 +44,11 @@ services:
       - "80:80"
     environment:
       - NGINX_HOST=mercacat.com
+    depends_on:
+      - backend
+      - postgresql
+    env_file:
+      - ./.envs/prod/.nginx
 
 volumes:
   postgres_data:
