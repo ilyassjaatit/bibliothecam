@@ -24,10 +24,10 @@ const ListBook = () => {
             <React.Fragment>
                 <Col>
                     <br/>
-                    <Button onClick={toggleShowForm}> Add book</Button>
-                    <div className={showForm ? 'd-none' : null}>
-                        <BookForm bookData={{}}></BookForm>
-                    </div>
+                    {/*<Button onClick={toggleShowForm}> Add book</Button>*/}
+                    {/*<div className={showForm ? 'd-none' : null}>*/}
+                    {/*    <BookForm bookData={{}}></BookForm>*/}
+                    {/*</div>*/}
                 </Col>
                 <br/>
                 <Row xs={2} md={4} className="g-4">
